@@ -1,5 +1,7 @@
 import React from 'react'
-import CategoryItem from '../categoryItem/CategoryItem';
+import CategoryItem from '../CategoryItem/CategoryItem';
+import './CategoryList.scss'
+
 const CategoryList = () => {
     const categories = [
         {

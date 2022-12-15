@@ -1,7 +1,7 @@
 import React from 'react'
 import './categoryItem.scss'
 
-const categoryItem = ({ category }) => {
+const CategoryItem = ({ category }) => {
   return (
     <div  className='categoryContainer'>
           <div className='backgroundImg' style={{
@@ -15,4 +15,4 @@ const categoryItem = ({ category }) => {
   )
 }
 
-export default categoryItem
+export default CategoryItem
