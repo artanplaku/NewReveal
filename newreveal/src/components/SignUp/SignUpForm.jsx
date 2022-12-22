@@ -2,6 +2,7 @@ import { async } from '@firebase/util'
 import React from 'react'
 import { useState } from 'react'
 import { createAuthUserWithEmailAndPassword, createUserDocumentFromAuth } from '../../utils/firebase/Firebase'
+import './SignUpForm.scss'
 
 const defaultFormFields = {
     displayName: "", 
@@ -57,46 +58,69 @@ const SignUpForm = () => {
     }
 
   return (
-    <div>
-        <h1>Sign up with email and password</h1>
+    <div className='sign-up-container'>
+        <h2>Don't have an account?</h2>
+        <span>Sign up with email and password</span>
         <form onSubmit={handleSubmit}>
-          <label>Display name</label>
-          <input 
+          <div className='group'>
+         
+          <label className={`${displayName.length ? 'shrink' : ''} form-input-label`}>
+            Display name
+          </label>
+          <input
+          className='form-input'
           type='text' 
           required 
           onChange={handleChange} 
           name="displayName"
           value={displayName} 
           />
-
-          <label>Email</label>
-          <input 
+          </div>
+          
+          <div className='group'>
+          <label className={`${email.length ? 'shrink' : ''} form-input-label`}>
+            Email
+          </label>
+          <input
+          className='form-input' 
           type='email' 
           required 
           onChange={handleChange} 
           name="email"
           value={email} 
           />
+          </div>
+        
+          <div className='group'>
 
-          <label>Password</label>
+          <label className={`${password.length ? 'shrink' : ''} form-input-label`}>
+            Password
+            </label>
           <input 
+          className='form-input'
           type='password' 
           required 
           onChange={handleChange} 
           name="password"
           value={password} 
           />
+          </div>
 
-          <label>Confirm Password</label>
+          <div className='group'>
+
+          <label className={`${confirmPassword.length ? 'shrink' : ''} form-input-label`}>Confirm Password</label>
           <input 
+          className='form-input'
           type='password' 
           required 
           onChange={handleChange} 
           name="confirmPassword"
           value={confirmPassword}  
           />
+          </div>
           <button type="submit">Sign up</button>
         </form>
+        
     </div>
   )
 }
