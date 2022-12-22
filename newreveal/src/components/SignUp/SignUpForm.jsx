@@ -16,24 +16,26 @@ const SignUpForm = () => {
 
     console.log(formFields)
 
+    //Reset form fields to default values 
     const resetFormFields = () => {
         setFormFields(defaultFormFields)
     }
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-//confirm password matches
+
+        //confirm password matches
         if(password !== confirmPassword){
             alert('passwords do not match');
             return;
         }
-//see if we have authenticated user with email and password
-//then create a user doc from what this returns
         try{
+            //Authenticate user with email and password
         const { user } = await createAuthUserWithEmailAndPassword(
             email, 
             password
         );
+            //Create user document from authenticated user
             await createUserDocumentFromAuth(user, {displayName})
             resetFormFields();
 
@@ -47,6 +49,7 @@ const SignUpForm = () => {
 
     }
 
+    //Update form fields when values change
     const handleChange = (event) =>{
         const { name, value } = event.target;
 

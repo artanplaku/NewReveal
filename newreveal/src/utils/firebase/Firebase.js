@@ -13,6 +13,7 @@ import {
     setDoc
 } from 'firebase/firestore'
 
+//Firebase configuration - received from Firebase website
 const firebaseConfig = {
     apiKey: "AIzaSyDmjxX3rIIpQVlWQMHDF2dFgmn_olMbbkQ",
     authDomain: "reveal-db.firebaseapp.com",
@@ -25,18 +26,25 @@ const firebaseConfig = {
   // Initialize Firebase
   const firebaseapp = initializeApp(firebaseConfig);
 
+  //Google authentication provider
   const googleProvider = new GoogleAuthProvider();
   googleProvider.setCustomParameters({
     prompt: "select_account"
   });
 
+  //Export Firebase auth and sign-in functions
   export const auth = getAuth();
   export const signInWithGooglePopup = () => signInWithPopup(auth, googleProvider);
+  
   //If we wanted to do it with Redirect:
-//   export const signInWithGoogleRedirect = () => signInWithRedirect(auth, googleProvider);
+  //   export const signInWithGoogleRedirect = () => 
+  //    signInWithRedirect(auth, googleProvider);
+  
 
+  //export Firebase Firestore and functions
   export const db = getFirestore();
 
+  //create a user document from authenticated user
 export const createUserDocumentFromAuth = async (
     userAuth,
      additionalInformation = {}
@@ -51,6 +59,7 @@ export const createUserDocumentFromAuth = async (
     console.log(userSnapshot);
     console.log(userSnapshot.exists());
 
+    // If user data does not exist, create/set document with data from userAuth in my collection
     if(!userSnapshot.exists()){
         const { displayName, email } = userAuth
         const createdAt = new Date();
@@ -66,14 +75,12 @@ export const createUserDocumentFromAuth = async (
             console.log('error creating the user', error.message);
         }
     }
-    return userDocRef;
-    //if user data does not exist
-    //create / set the document with the data from userAuth in my collection
-
-    //if user data exists
+    ////if user data exists
     //return userDocRef
+    return userDocRef;
   };
 
+  //create an authenticated user with email and password
   export const createAuthUserWithEmailAndPassword = async (email, password) => {
     if(!email || !password) return;
 
