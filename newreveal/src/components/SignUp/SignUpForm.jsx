@@ -1,8 +1,8 @@
-import { async } from '@firebase/util'
 import React from 'react'
 import { useState } from 'react'
 import { createAuthUserWithEmailAndPassword, createUserDocumentFromAuth } from '../../utils/firebase/Firebase'
 import './SignUpForm.scss'
+import Button from '../button/Button'
 
 const defaultFormFields = {
     displayName: "", 
@@ -118,7 +118,7 @@ const SignUpForm = () => {
           value={confirmPassword}  
           />
           </div>
-          <button type="submit">Sign up</button>
+          <Button buttonType='google' type="submit">Sign up</Button>
         </form>
         
     </div>
