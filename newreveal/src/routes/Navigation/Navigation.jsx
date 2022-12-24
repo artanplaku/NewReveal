@@ -1,10 +1,13 @@
 import React from 'react'
-import { Fragment } from 'react'
+import { Fragment, useContext } from 'react'
 import { Outlet, Link } from 'react-router-dom'
 import { ReactComponent as CrwnLogo} from '../../assets/crown.svg'
 import './Navigation.scss'
+import { UserContext } from '../../contexts/UserContext'
 
 const Navigation = () => {
+  const { currentUser } = useContext(UserContext)
+  console.log(currentUser)
     return(
 // Fragment acts like a parent div without adding anything to the DOM - no extra divs ----------------------------
         <Fragment>
