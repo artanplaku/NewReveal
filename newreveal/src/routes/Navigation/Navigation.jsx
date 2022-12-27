@@ -7,10 +7,12 @@ import { UserContext } from '../../contexts/UserContext'
 import { signOutUser } from '../../utils/firebase/Firebase'
 import CartIcon from '../../components/cart-icon/CartIcon'
  import CartDropdown from '../../components/CartDropdown/CartDropdown'
+import { CartContext } from '../../contexts/CartContext'
+
 
 const Navigation = () => {
   const { currentUser } = useContext(UserContext)
-    
+  const { isCartOpen } = useContext(CartContext) 
 
     return(
 // Fragment acts like a parent div without adding anything to the DOM - no extra divs ----------------------------
@@ -31,7 +33,7 @@ const Navigation = () => {
                  )}
                  <CartIcon />
             </div>
-            <CartDropdown />
+            {isCartOpen && <CartDropdown /> }
           </div>
           {/* Outlet renders the child component here: */}
           <Outlet />
