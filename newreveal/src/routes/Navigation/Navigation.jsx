@@ -5,6 +5,7 @@ import { ReactComponent as CrwnLogo} from '../../assets/crown.svg'
 import './Navigation.scss'
 import { UserContext } from '../../contexts/UserContext'
 import { signOutUser } from '../../utils/firebase/Firebase'
+import CartIcon from '../../components/cart-icon/CartIcon'
 
 const Navigation = () => {
   const { currentUser } = useContext(UserContext)
@@ -27,6 +28,7 @@ const Navigation = () => {
                   SIGN IN
                  </Link>
                  )}
+                 <CartIcon />
             </div>
           </div>
           {/* Outlet renders the child component here: */}
