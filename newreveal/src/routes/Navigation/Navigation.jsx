@@ -6,6 +6,7 @@ import './Navigation.scss'
 import { UserContext } from '../../contexts/UserContext'
 import { signOutUser } from '../../utils/firebase/Firebase'
 import CartIcon from '../../components/cart-icon/CartIcon'
+ import CartDropdown from '../../components/CartDropdown/CartDropdown'
 
 const Navigation = () => {
   const { currentUser } = useContext(UserContext)
@@ -30,6 +31,7 @@ const Navigation = () => {
                  )}
                  <CartIcon />
             </div>
+            <CartDropdown />
           </div>
           {/* Outlet renders the child component here: */}
           <Outlet />
