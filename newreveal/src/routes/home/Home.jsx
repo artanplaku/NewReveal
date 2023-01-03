@@ -27,7 +27,8 @@ const Home = () => {
         {
           id: 5,
           title: "mens",
-          imageUrl: "https://i.ibb.co/R70vBrQ/men.png",
+          // imageUrl: "https://i.ibb.co/R70vBrQ/men.png",
+          imageUrl: "https://cdn.shopify.com/s/files/1/0692/4255/files/SL_Fall18_Sneak002_3_x800.jpg?v=1664891645",
         }
       ]
 
