@@ -3,12 +3,12 @@ import { useState, createContext, useEffect } from "react";
 import { addCollectionAndDocuments, getCategoriesAndDocuments } from "../utils/firebase/Firebase";
 
 //the value we want to access
-export const ProductsContext = createContext({
-    products: [],
+export const CategoriesContext = createContext({
+    categoriesMap: {},
 });
 
-export const ProductProvider = ({ children }) => {
-    const [products, setProducts]= useState([]);
+export const CategoriesProvider = ({ children }) => {
+    const [categoriesMap, setCategoriesMap]  = useState({});
     // Run below once to add collection to Firebase:
     // useEffect(()=>{
     //     addCollectionAndDocuments('categories', SHOP_DATA)
@@ -18,14 +18,15 @@ export const ProductProvider = ({ children }) => {
         const getCategoriesMap = async () => {
             const categoryMap = await getCategoriesAndDocuments();
             console.log(categoryMap)
+            setCategoriesMap(categoryMap)
         }
         getCategoriesMap();
     }, [])
 
-    const value = { products };
+    const value = { categoriesMap };
 
 
     return (
-    <ProductsContext.Provider value={value}>{children}</ProductsContext.Provider>
+    <CategoriesContext.Provider value={value}>{children}</CategoriesContext.Provider>
     )
 }
