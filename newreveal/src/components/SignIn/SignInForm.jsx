@@ -2,7 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import { 
   signInWithGooglePopup, 
-  createUserDocumentFromAuth,
+  // createUserDocumentFromAuth,
   signInAuthUserWithEmailAndPassword 
 } from '../../utils/firebase/Firebase'
 import './SignInForm.scss'
