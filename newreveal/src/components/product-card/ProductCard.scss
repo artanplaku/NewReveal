@@ -2,14 +2,15 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    height: 350px;
+    height: 450px;
     align-items: center;
     position: relative;
   
     img {
       width: 100%;
       height: 95%;
-      object-fit: cover;
+      // object-fit: cover;
+      object-fit: contain;
       margin-bottom: 5px;
     }
   
@@ -49,4 +50,23 @@
       }
     }
   }
+
+  // @media (max-width: 600px) {
+  //   .product-card-container {
+  //     flex-direction: row;
+  //     height: auto;
+  //     width: 90%;
+  //     margin: 0 auto;
+  //   }
+  //   img {
+  //     width: 100%;
+  //     height: 200px;
+  //   }
+  //   button {
+  //     width: 100%;
+  //     top: auto;
+  //     bottom: 0;
+  //     margin-top: 10px;
+  //   }
+  // }
   

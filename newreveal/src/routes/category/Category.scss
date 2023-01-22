@@ -11,3 +11,21 @@
     margin-bottom: 25px;
     text-align: center;
 }
+
+@media (max-width: 1600px) {
+    .category-container {
+      grid-template-columns: repeat(3, 1fr); /* 3 columns, each taking up 1 fraction of the available space */
+    }
+  }
+
+  @media (max-width: 800px) {
+    .category-container {
+      grid-template-columns: repeat(2, 1fr); /* 2 columns, each taking up 1 fraction of the available space */
+    }
+  }
+
+  @media (max-width: 400px) {
+    .category-container {
+      grid-template-columns: 1fr; 
+    }
+  }
